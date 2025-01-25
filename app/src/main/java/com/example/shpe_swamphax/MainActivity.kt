@@ -20,14 +20,22 @@ class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val taskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
         enableEdgeToEdge()
         setContent {
             SHPE_SWAMPHAXTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    GatorPage(viewModel = taskViewModel, modifier = Modifier.padding(innerPadding))
+                    Greeting("Hello Android", modifier = Modifier.padding(innerPadding))
                 }
             }
         }
     }
+}
+
+@Composable
+fun Greeting(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        modifier = modifier
+    )
+
 }
